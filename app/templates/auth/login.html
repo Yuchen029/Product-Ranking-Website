@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block navigation %} {% endblock %}
+
+{% block content %}
+<!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Log in</h3>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                        <div class="alert alert-warning">
+                            <li>{{ message }}</li>
+                        </div>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <!-- row -->
+            <div class="row">
+
+                <div class="col-md-7">
+                    <!-- Form Details -->
+                    <div class="form-details">
+                        <form action="" method="post" novalidate>
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ form.email(class="input", placeholder="Email", size=32) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password(class="input", placeholder="Password", size=32) }}
+                            </div>
+                            <div class="form-group">
+                                <div class="input-checkbox">
+                                    {{ form.remember_me(class="input", id="remember-me") }}
+                                    <label for="remember-me">
+                                        <span></span>
+                                        Keep me logged in
+                                    </label>
+                                </div>
+                            </div>
+                            {{ form.submit(class="primary-btn order-submit") }}
+                            <a href="{{ url_for('auth.register') }}" class="primary-btn order-submit">No account?</a>
+                        </form>
+                    </div>
+                    <!-- /Form Details -->
+                </div>
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+{% endblock %}

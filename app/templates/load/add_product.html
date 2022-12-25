@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block navigation %} {% endblock %}
+
+{% block content %}
+<!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">Upload Item</h3>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                        <div class="alert alert-warning">
+                            <li>{{ message }}</li>
+                        </div>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <!-- row -->
+            <div class="row">
+
+                <div class="col-md-7">
+                    <!-- Form Details -->
+                    <div class="form-details">
+                        <form action="" method="post" novalidate, enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ form.name(class="input", placeholder="Name", size=32) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.description(class="input", placeholder="Description", size=32) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.price(class="input", placeholder="Price", size=32) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                {{ form.category(class="input", placeholder="Category", size=32) }}
+                            </div>
+                            <input type='file' name='file'>
+                            <br>
+                            <br>
+                            <br>
+                            {{ form.submit(class="primary-btn order-submit") }}
+                        </form>
+                    </div>
+                    <!-- /Form Details -->
+                </div>
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+{% endblock %}

@@ -1,0 +1,430 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="{{ url_for('auth.index') }}">Ranks</a></li>
+                    {% if session.get("ID") != None %}
+                    <li><a href="{{ url_for('load.display_product', cat='food') }}">Food</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='clothes') }}">Clothes</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='electronics') }}">Electronics</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='sports') }}">Sports</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='books') }}">Books</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='others') }}">Others</a></li>
+                    {% endif %}
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+{% endblock %}
+
+{% block content %}
+<!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title">Top Ranking</h3>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="products-tabs">
+                            <!-- tab -->
+                            <div id="tab2" class="tab-pane fade in active">
+                                <div class="products-slick" data-nav="#slick-nav-2">
+<!--                                    &lt;!&ndash; product &ndash;&gt;-->
+<!--                                    <div class="product">-->
+<!--                                        <div class="product-img">-->
+<!--                                            <img src="../../static/img/product06.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product-body">-->
+<!--                                            <p class="product-category">Category</p>-->
+<!--                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>-->
+<!--                                            <h4 class="product-price">$980.00</h4>-->
+<!--                                            <div class="product-rating">-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-btns">-->
+<!--                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /product &ndash;&gt;-->
+
+<!--                                    &lt;!&ndash; product &ndash;&gt;-->
+<!--                                    <div class="product">-->
+<!--                                        <div class="product-img">-->
+<!--                                            <img src="../../static/img/product07.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product-body">-->
+<!--                                            <p class="product-category">Category</p>-->
+<!--                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>-->
+<!--                                            <h4 class="product-price">$980.00</h4>-->
+<!--                                            <div class="product-rating">-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-btns">-->
+<!--                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /product &ndash;&gt;-->
+
+<!--                                    &lt;!&ndash; product &ndash;&gt;-->
+<!--                                    <div class="product">-->
+<!--                                        <div class="product-img">-->
+<!--                                            <img src="../../static/img/product08.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product-body">-->
+<!--                                            <p class="product-category">Category</p>-->
+<!--                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>-->
+<!--                                            <h4 class="product-price">$980.00</h4>-->
+<!--                                            <div class="product-rating">-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-btns">-->
+<!--                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /product &ndash;&gt;-->
+
+<!--                                    &lt;!&ndash; product &ndash;&gt;-->
+<!--                                    <div class="product">-->
+<!--                                        <div class="product-img">-->
+<!--                                            <img src="../../static/img/product09.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product-body">-->
+<!--                                            <p class="product-category">Category</p>-->
+<!--                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>-->
+<!--                                            <h4 class="product-price">$980.00</h4>-->
+<!--                                            <div class="product-rating">-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-btns">-->
+<!--                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /product &ndash;&gt;-->
+
+<!--                                    &lt;!&ndash; product &ndash;&gt;-->
+<!--                                    <div class="product">-->
+<!--                                        <div class="product-img">-->
+<!--                                            <img src="../../static/img/product01.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product-body">-->
+<!--                                            <p class="product-category">Category</p>-->
+<!--                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>-->
+<!--                                            <h4 class="product-price">$980.00</h4>-->
+<!--                                            <div class="product-rating">-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                                <i class="fa fa-star"></i>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-btns">-->
+<!--                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; /product &ndash;&gt;-->
+                                </div>
+                                <div id="slick-nav-2" class="products-slick-nav"></div>
+                            </div>
+                            <!-- /tab -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Food</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-3" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for food in foods %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ food.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=food.id) }}">{{ food.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if food.avg_star != 0 %}
+                                                {% for s in range (0, food.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if food.avg_star != 5 %}
+                                                {% for s in range (0, (5-food.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Clothes</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-4" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for cloth in clothes %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ cloth.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=cloth.id) }}">{{ cloth.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if cloth.avg_star != 0 %}
+                                                {% for s in range (0, cloth.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if cloth.avg_star != 5 %}
+                                                {% for s in range (0, (5-cloth.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-sm visible-xs"></div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Electronics</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-5" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for electronic in electronics %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ electronic.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=electronic.id) }}">{{ electronic.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if electronic.avg_star != 0 %}
+                                                {% for s in range (0, electronic.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if electronic.avg_star != 5 %}
+                                                {% for s in range (0, (5-electronic.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Sports</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-6" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for sport in sports %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ sport.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=sport.id) }}">{{ sport.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if sport.avg_star != 0 %}
+                                                {% for s in range (0, sport.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if sport.avg_star != 5 %}
+                                                {% for s in range (0, (5-sport.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Books</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-7" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for book in books %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ book.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=book.id) }}">{{ book.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if book.avg_star != 0 %}
+                                                {% for s in range (0, book.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if book.avg_star != 5 %}
+                                                {% for s in range (0, (5-book.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-sm visible-xs"></div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="section-title">
+                        <h4 class="title">Others</h4>
+                        <div class="section-nav">
+                            <div id="slick-nav-8" class="products-slick-nav"></div>
+                        </div>
+                    </div>
+
+                    <div class="products-widget-slick" data-nav="#slick-nav-3">
+                        <div>
+                            {% for other in others %}
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <img src={{ other.image }} alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="{{ url_for('load.product_details', p=other.id) }}">{{ other.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if other.avg_star != 0 %}
+                                                {% for s in range (0, other.avg_star) %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if other.avg_star != 5 %}
+                                                {% for s in range (0, (5-other.avg_star)) %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+{% endblock %}

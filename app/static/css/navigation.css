@@ -1,0 +1,155 @@
+/* navigation */
+nav {
+    display: block;
+}
+
+#navigation {
+    background: #FFF;
+    border-bottom: 2px solid #E4E7ED;
+    border-top: 3px solid #D10024;
+}
+
+/* list */
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media only screen and (max-width: 991px) {
+    #responsive-nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #15161D;
+        height: 100vh;
+        max-width: 250px;
+        width: 0%;
+        overflow: hidden;
+        z-index: 22;
+        padding-top: 60px;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        transform: translateX(-100%);
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav {
+    margin: 7.5px -15px;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-nav {
+        margin: 0px;
+        float: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: left;
+        margin: 0;
+    }
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-nav>li {
+        display: block;
+        float: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav>li {
+        float: left;
+    }
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.main-nav>li>a {
+    padding: 20px 0px;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-nav>li>a {
+        padding: 15px;
+        color: #FFF;
+    }
+}
+
+.main-nav>li.active>a {
+    color: #D10024;
+    background-color: transparent;
+}
+
+.main-nav>li+li {
+    margin-left: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-nav>li+li {
+        margin-left: 0px;
+    }
+}
+
+.main-nav>li>a:after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #D10024;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

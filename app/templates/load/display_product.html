@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="{{ url_for('auth.index') }}">Ranks</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='food') }}">Food</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='clothes') }}">Clothes</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='electronics') }}">Electronics</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='sports') }}">Sports</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='books') }}">Books</a></li>
+                    <li><a href="{{ url_for('load.display_product', cat='others') }}">Others</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+{% endblock %}
+
+{% block content %}
+<!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- ASIDE -->
+                <div id="aside" class="col-md-3">
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Categories</h3>
+                        <div class="checkbox-filter">
+
+                            <div class="input-checkbox">
+                                <label for="category-1">
+                                    <span></span>
+                                    Food
+                                    <small>{{ food }}</small>
+                                </label>
+                            </div>
+
+                            <div class="input-checkbox">
+                                <label for="category-2">
+                                    <span></span>
+                                    Clothes
+                                    <small>{{ clothes }}</small>
+                                </label>
+                            </div>
+
+                            <div class="input-checkbox">
+                                <label for="category-3">
+                                    <span></span>
+                                    Electronics
+                                    <small>{{ electronics }}</small>
+                                </label>
+                            </div>
+
+                            <div class="input-checkbox">
+                                <label for="category-4">
+                                    <span></span>
+                                    Sports
+                                    <small>{{ sports }}</small>
+                                </label>
+                            </div>
+
+                            <div class="input-checkbox">
+                                <label for="category-5">
+                                    <span></span>
+                                    Books
+                                    <small>{{ books }}</small>
+                                </label>
+                            </div>
+
+                            <div class="input-checkbox">
+                                <label for="category-7">
+                                    <span></span>
+                                    Others
+                                    <small>{{ others }}</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /aside Widget -->
+
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Price</h3>
+                       <form action="" method="post" novalidate>
+                             {{ priceForm.hidden_tag() }}
+                        <div class="price-filter">
+                            <div id="price-slider"></div>
+                            <div class="input-number price-min">
+                                 Low Price{{ priceForm.lowPrice(class="input", id="price-min",type="number") }}
+
+                            </div>
+                            <span>-</span>
+                            <div class="input-number price-max">
+                                High Price{{ priceForm.highPrice(class="input",id="price-max", type="number") }}
+
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                         {{ priceForm.submit(class="primary-btn order-submit") }}
+                       </form>
+                    </div>
+                    <!-- /aside Widget -->
+
+                </div>
+                <!-- /ASIDE -->
+
+                <!-- STORE -->
+                <div id="store" class="col-md-9">
+
+                    <!-- store products -->
+                    <div class="row">
+                        <!-- generate products of a category -->
+                        {% for p in pls %}
+                            {% if p == " " %}
+                                <div class="clearfix visible-lg visible-md"></div>
+                            {% else %}
+                                <!-- product -->
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src={{ p.image }} alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">{{ p.category }}</p>
+                                            <h3 class="product-name"><a href="{{ url_for('load.product_details', p=p.id) }}">{{ p.name }}</a></h3>
+                                            <h4 class="product-price">${{ p.price }}</h4>
+                                            <div class="product-rating">
+                                                {% if p.avg_star != 0 %}
+                                                    {% for s in range (0, p.avg_star) %}
+                                                        <i class="fa fa-star"></i>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {% if p.avg_star != 5 %}
+                                                    {% for s in range (0, (5-p.avg_star)) %}
+                                                        <i class="fa fa-star-o"></i>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product -->
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- /store products -->
+
+                </div>
+                <!-- /STORE -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+{% endblock %}
